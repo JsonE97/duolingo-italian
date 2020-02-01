@@ -2,6 +2,7 @@
   "name": "react-italian",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://JsonE97.github.io/duolingo-italian",
   "dependencies": {
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
