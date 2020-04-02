@@ -1,0 +1,23 @@
+.verbContainer {
+    width: 100%;
+}
+
+.verbTable {
+    width: 50%;
+    th {
+        text-align: left;
+        padding-bottom: 20px;
+        background-color: green;
+    }
+    td {
+        text-align: left;
+        width: 50%;
+    }
+}
+
+.verbContainerOptions {
+    background-color: red;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
