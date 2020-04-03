@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/italian/static/css/main.1f5734fe.chunk.css",
-    "main.js": "/italian/static/js/main.b7958b26.chunk.js",
-    "main.js.map": "/italian/static/js/main.b7958b26.chunk.js.map",
-    "runtime-main.js": "/italian/static/js/runtime-main.09a6959b.js",
-    "runtime-main.js.map": "/italian/static/js/runtime-main.09a6959b.js.map",
-    "static/js/2.e20ea352.chunk.js": "/italian/static/js/2.e20ea352.chunk.js",
-    "static/js/2.e20ea352.chunk.js.map": "/italian/static/js/2.e20ea352.chunk.js.map",
-    "index.html": "/italian/index.html",
-    "precache-manifest.af63e23266e679f78038829d68ae1832.js": "/italian/precache-manifest.af63e23266e679f78038829d68ae1832.js",
-    "service-worker.js": "/italian/service-worker.js",
-    "static/css/main.1f5734fe.chunk.css.map": "/italian/static/css/main.1f5734fe.chunk.css.map"
+    "main.css": "/duolingo-italian/static/css/main.1f5734fe.chunk.css",
+    "main.js": "/duolingo-italian/static/js/main.918c8e87.chunk.js",
+    "main.js.map": "/duolingo-italian/static/js/main.918c8e87.chunk.js.map",
+    "runtime-main.js": "/duolingo-italian/static/js/runtime-main.38a570ac.js",
+    "runtime-main.js.map": "/duolingo-italian/static/js/runtime-main.38a570ac.js.map",
+    "static/js/2.e20ea352.chunk.js": "/duolingo-italian/static/js/2.e20ea352.chunk.js",
+    "static/js/2.e20ea352.chunk.js.map": "/duolingo-italian/static/js/2.e20ea352.chunk.js.map",
+    "index.html": "/duolingo-italian/index.html",
+    "precache-manifest.b29582e169dba79f84b7ab083989f384.js": "/duolingo-italian/precache-manifest.b29582e169dba79f84b7ab083989f384.js",
+    "service-worker.js": "/duolingo-italian/service-worker.js",
+    "static/css/main.1f5734fe.chunk.css.map": "/duolingo-italian/static/css/main.1f5734fe.chunk.css.map"
   },
   "entrypoints": [
-    "static/js/runtime-main.09a6959b.js",
+    "static/js/runtime-main.38a570ac.js",
     "static/js/2.e20ea352.chunk.js",
     "static/css/main.1f5734fe.chunk.css",
-    "static/js/main.b7958b26.chunk.js"
+    "static/js/main.918c8e87.chunk.js"
   ]
 }
