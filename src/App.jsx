@@ -18,22 +18,22 @@ function App() {
         <nav>
           <ul>
             <li>
-              <Link to="/">Home</Link>
+              <Link to="/italian/home">Home</Link>
             </li>
             <li>
-              <Link to="/verbs">Verbs</Link>
+              <Link to="/italian/verbs">Verbs</Link>
             </li>
           </ul>
         </nav>
 
         <Switch>
-          <Route path="/verbs">
+          <Route path="/italian/verbs">
             <div className="App-current-page">
               <h2>Commonly used verbs</h2>
               <VerbList verbData={presentData}></VerbList>
             </div>
           </Route>
-          <Route path="/">
+          <Route path="/italian/home">
             <></>
           </Route>
         </Switch>
