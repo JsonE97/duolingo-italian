@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+
 import './App.scss';
 import { VerbList } from './VerbList.jsx';
 import IndicativeData from  './data/indicativo.json';
@@ -7,16 +9,37 @@ function App() {
   const [presentData, setPresentData] = useState(IndicativeData.PRESENTE);
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Italian Verbs with Json</h1>
-      </header>
+    <Router>
+      <div className="App">
+        <header className="App-header">
+          <h1>Italian Verbs with Json</h1>
+        </header>
 
-      <div className="App-current-page">
-        <h2>Some common verbs</h2>
-        <VerbList verbData={presentData}></VerbList>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/verbs">Verbs</Link>
+            </li>
+          </ul>
+        </nav>
+
+        <Switch>
+          <Route path="/verbs">
+            <div className="App-current-page">
+              <h2>Commonly used verbs</h2>
+              <VerbList verbData={presentData}></VerbList>
+            </div>
+          </Route>
+          <Route path="/">
+            <></>
+          </Route>
+        </Switch>
+
       </div>
-    </div>
+    </Router>
   );
 }
 
