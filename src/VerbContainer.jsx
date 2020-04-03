@@ -6,15 +6,17 @@ export const VerbContainer = ({verbData}) => {
 
     useEffect(() => {
         if(verbData !== undefined && verbData !== null){
+            const arrayData = verbData.split(",")
+
             const newData = {};
-            newData.engVerb = verbData[0];
-            newData.itVerb = verbData[1];
-            newData.iVerb = verbData[2];
-            newData.youVerb = verbData[3];
-            newData.heSheVerb = verbData[4];
-            newData.weVerb = verbData[5];
-            newData.youPlVerb = verbData[6];
-            newData.theyVerb = verbData[7];
+            newData.engVerb = arrayData[0];
+            newData.itVerb = arrayData[1];
+            newData.iVerb = arrayData[2];
+            newData.youVerb = arrayData[3];
+            newData.heSheVerb = arrayData[4];
+            newData.weVerb = arrayData[5];
+            newData.youPlVerb = arrayData[6];
+            newData.theyVerb = arrayData[7];
 
             setComponentData(newData)
         }
@@ -23,10 +25,12 @@ export const VerbContainer = ({verbData}) => {
     return (
         <div className="verbContainer">
             <table align="center" className="verbTable">
-                <tr>
-                    <th>{componentData.engVerb}</th>
-                    <th>{componentData.itVerb}</th>
-                </tr>
+                <thead>
+                    <tr>
+                        <th>{componentData.engVerb}</th>
+                        <th>{componentData.itVerb}</th>
+                    </tr>
+                </thead>
                 <tbody>
                     <tr>
                         <td>{"I " + componentData.engVerb}</td>
@@ -56,7 +60,7 @@ export const VerbContainer = ({verbData}) => {
             </table>
 
             <div className="verbContainerOptions">
-                <p>Test</p>
+                test
             </div>
         </div>
     )

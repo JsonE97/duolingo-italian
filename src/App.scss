@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background-color: lightgreen;
 }
 
 .App-logo {
@@ -7,13 +8,17 @@
 }
 
 .App-header {
-  min-height: 100vh;
   justify-content: center;
   font-size: calc(10px + 2vmin);
+  background-color: lightgreen;
 
   h1 {
     color: green;
   }
+}
+
+header {
+  background-color: lightgreen;
 }
 
 .App-link {
