@@ -13,18 +13,15 @@ function App() {
       <div className="App">
         <header className="App-header">
           <h1>Italian Verbs with Json</h1>
+          <div className="container">
+            <nav>
+              <ul>
+                <li><Link className="nav-link" to="/">Home</Link></li>
+                <li><Link className="nav-link" to="/verbs">Verbs</Link></li>
+              </ul>
+            </nav>
+          </div>
         </header>
-
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/verbs">Verbs</Link>
-            </li>
-          </ul>
-        </nav>
 
         <Switch>
           <Route path="/verbs">
