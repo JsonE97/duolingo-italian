@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 import './App.scss';
-import { VerbList } from './VerbList.jsx';
+
 import IndicativeData from  './data/indicativo.json';
+import { VerbsPage } from './VerbsPage';
 
 function App() {
   const [presentData, setPresentData] = useState(IndicativeData.PRESENTE);
@@ -25,10 +26,7 @@ function App() {
 
         <Switch>
           <Route path="/verbs">
-            <div className="App-current-page">
-              <h2>Commonly used verbs</h2>
-              <VerbList verbData={presentData}></VerbList>
-            </div>
+            <VerbsPage verbData={presentData}></VerbsPage>
           </Route>
           <Route path="/">
             <></>

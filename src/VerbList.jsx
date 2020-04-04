@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import './VerbList.scss';
 import './VerbContainer.jsx';
@@ -22,6 +22,11 @@ export const VerbList = ({verbData}) => {
             setItems(newItems);
         });
     }
+
+    useEffect(() => {
+        const verbObjects = Object.keys(verbData).map(k => <VerbContainer verbData={verbData[k]}></VerbContainer>)
+        setItems(verbObjects.slice(0,4));
+    }, [verbData]);
 
     return (
         <div>
