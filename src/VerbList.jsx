@@ -9,18 +9,13 @@ export const VerbList = ({verbData}) => {
     const verbObjects = Object.keys(verbData).map(k => <VerbContainer verbData={verbData[k]}></VerbContainer>)
     const [items, setItems] = useState(verbObjects.slice(0,4));
 
-    const loadMoreItemsPromise = new Promise((resolve, reject) => {
-        setTimeout(() => resolve(verbObjects.slice(0, items.length + 4)), 1000);
-    });
-
     const moreVerbsExist = () => {
         return items.length !== verbObjects.length;
     }
 
     const loadFunc = () => {
-        loadMoreItemsPromise.then(newItems => {
-            setItems(newItems);
-        });
+        var newItems = verbObjects.slice(0, items.length + 4);
+        setItems(newItems);
     }
 
     useEffect(() => {
