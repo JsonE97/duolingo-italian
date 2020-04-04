@@ -6,7 +6,7 @@ export const VerbContainer = ({verbData}) => {
 
     useEffect(() => {
         if(verbData !== undefined && verbData !== null){
-            const arrayData = verbData.split(",")
+            const arrayData = verbData.split(";");
 
             const newData = {};
             newData.engVerb = arrayData[0];

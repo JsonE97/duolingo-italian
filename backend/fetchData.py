@@ -12,5 +12,3 @@ while len(words) > 0:
     #print("Word - {0} - has translations - {1}".format(str(word), lingo.get_translations([word], source='en', target='it')))
 
 #login system idea
-
-if __name__ == "__main__":
