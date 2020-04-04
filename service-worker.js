@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/duolingo-italian/precache-manifest.b29582e169dba79f84b7ab083989f384.js"
+  "/duolingo-italian/precache-manifest.97c2635322f1ef4c16db2ca4079ef3c7.js"
 );
 
 self.addEventListener('message', (event) => {
