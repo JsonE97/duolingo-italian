@@ -10,5 +10,3 @@
 #     word = words.pop()
 #     storedWords[word] = lingo.get_translations([word], source='en', target='it')
 #     #print("Word - {0} - has translations - {1}".format(str(word), lingo.get_translations([word], source='en', target='it')))
-
-# #login system idea
