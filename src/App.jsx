@@ -32,17 +32,19 @@ function App() {
           </div>
         </header>
 
-        <Switch>
-          <Route path="/verbs">
-            <VerbsPage verbData={presentData}></VerbsPage>
-          </Route>
-          <Route path="/parser">
-            <DocParserPage></DocParserPage>
-          </Route>
-          <Route path="/">
-            <></>
-          </Route>
-        </Switch>
+        <div className="div-page-container">
+          <Switch>
+            <Route path="/verbs">
+              <VerbsPage verbData={presentData}></VerbsPage>
+            </Route>
+            <Route path="/parser">
+              <DocParserPage></DocParserPage>
+            </Route>
+            <Route path="/">
+              <></>
+            </Route>
+          </Switch>
+        </div>
 
       </div>
     </Router>
