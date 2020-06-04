@@ -3,6 +3,12 @@
     border-top: solid 4pt green;
     border-bottom: solid 4pt green;
     width: 100%;
+
+    h2 {
+        color: green;
+        text-align: left;
+        font-size: 30px;
+    }
 }
 
 .parser-container-entry {
@@ -29,10 +35,3 @@ button {
     height: 50px;
     float: left;
 }
-
-h2 {
-    color: green;
-    text-align: left;
-    font-size: 30px;
-}
-
