@@ -24,11 +24,14 @@
 }
 
 .parser-options {
+    width: 100%;
+    display: inline-block;
     padding-bottom: 70px;
 }
 
 .parser-loading-spinner {
-    width: 10%;
+    float: left;
+    width: 50%;
 }
 
 button {
@@ -36,7 +39,7 @@ button {
     color: rgb(8, 243, 0);
     background-color: green;
     outline: none;
-    width: 20%;
+    width: 50%;
     height: 50px;
     float: left;
 }
