@@ -27,10 +27,15 @@
     padding-bottom: 70px;
 }
 
+.parser-loading-spinner {
+    width: 10%;
+}
+
 button {
     margin-bottom: 20px;
     color: rgb(8, 243, 0);
     background-color: green;
+    outline: none;
     width: 20%;
     height: 50px;
     float: left;
