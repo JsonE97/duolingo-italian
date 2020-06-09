@@ -1,7 +1,8 @@
-export const executeFunction = ({ funcName, args }) => {
-    return new Promise(
+export const executeFunction = (funcName, args) => {
+    return new Promise((resolve, reject) => {
         fetch('/' + funcName).then(
             res => res.json()
-        ).then(res => res)
+        ).then(res => resolve(res))
+    }
     )
 }

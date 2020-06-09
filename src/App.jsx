@@ -1,21 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 import './App.scss';
 
 import IndicativeData from  './data/indicativo.json';
-import { executeFunction } from './lib/BridgeFunctions.jsx';
 import { VerbsPage } from './VerbsPage';
 import { DocParserPage } from './DocParserPage';
 
 function App() {
-
-  // useEffect(() => {
-  //   console.log(typeof executeFunction('time'));
-  //   // executeFunction('/time').then(res => {
-  //   //   console.log(res);
-  //   // });
-  // }, [])
 
   const [presentData, setPresentData] = useState(IndicativeData.PRESENTE);
 

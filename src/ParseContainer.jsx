@@ -1,12 +1,16 @@
 import React, { useState } from 'react';
 import './ParseContainer.scss';
 import Loader from 'react-loader-spinner';
+import { executeFunction } from './lib/BridgeFunctions.jsx';
 
 export const ParseContainer = () => {
     const [isLoading, setIsLoading] = useState(false);
 
     const onSubmit = () => {
         setIsLoading(! isLoading);
+        executeFunction('parseText', 1).then(res => {
+            console.log(res);
+        });
     }
 
     return (
