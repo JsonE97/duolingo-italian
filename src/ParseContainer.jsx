@@ -14,7 +14,7 @@ export const ParseContainer = () => {
             <h2>Enter text below:</h2>
             <textarea className="parser-container-entry" type="text"></textarea>
             <div className="parser-options">
-                <button onClick={() => onSubmit()}>Submit</button>
+            <button disabled={isLoading} onClick={() => onSubmit()}>{isLoading ? "Parsing ..." : "Submit"}</button>
                 <div className="parser-loading-spinner">
                     {isLoading ?
                         <Loader
@@ -22,7 +22,6 @@ export const ParseContainer = () => {
                             height="30"
                             width="30"
                         >
-
                         </Loader>
                     :
                     <>
