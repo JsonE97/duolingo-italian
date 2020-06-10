@@ -1,8 +1,14 @@
 import time
-from flask import Flask
+from flask import Flask, request
+from googletrans import Translator
 
 app = Flask(__name__)
 
-@app.route('/parseText/<args>')
-def parse_input_text(args):
-    return {'time': args}
+translator = Translator()
+
+@app.route('/parseText')
+def parse_input_text():
+    text = request.args["text"]
+    translation = translator.translate(text, src="it", dest="en")
+    finalText = translation.text
+    return {'args': finalText}

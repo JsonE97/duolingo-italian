@@ -9,7 +9,7 @@ export const ParseContainer = () => {
 
     const onSubmit = () => {
         setIsLoading(!isLoading);
-        executeFunction('parseText', inputText).then(res => {
+        executeFunction('parseText', {text: inputText}).then(res => {
             console.log(res);
         });
     }
