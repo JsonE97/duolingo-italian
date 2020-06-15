@@ -12,4 +12,4 @@ def parse_input_text():
     text = request.args["text"]
     translation = translator.translate(text, src="it", dest="en")
     finalText = obtain_nouns(translation.text)
-    return {'args': finalText}
+    return finalText

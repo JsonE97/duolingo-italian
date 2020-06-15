@@ -9,6 +9,12 @@
         text-align: left;
         font-size: 30px;
     }
+
+    h3 {
+        color: green;
+        text-align: left;
+        font-size: 25px;
+    }
 }
 
 .parser-container-entry {
@@ -26,12 +32,22 @@
 .parser-options {
     width: 100%;
     display: inline-block;
-    padding-bottom: 70px;
+    padding-bottom: 10px;
 }
 
 .parser-loading-spinner {
     float: left;
     width: 10%;
+}
+
+.parser-tokens {
+    width: 100%;
+    display: inline-block;
+
+    div {
+        width: 50%;
+        float: left;
+    }
 }
 
 button {
