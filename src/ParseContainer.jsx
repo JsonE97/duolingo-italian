@@ -7,12 +7,15 @@ export const ParseContainer = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [inputText, setInputText] = useState("");
     const [nounsObtained, setNounsObtained] = useState({});
+    const [verbsObtained, setVerbsObtained] = useState({});
 
     const onSubmit = () => {
         setIsLoading(!isLoading);
-        executeFunction('parseText', {text: inputText}).then(res => {
+        executeFunction('parseText', { text: inputText }).then(res => {
+            console.log(res);
             setIsLoading(false);
-            setNounsObtained(res);
+            setNounsObtained(res.nouns);
+            setVerbsObtained(res.verbs);
         });
     }
 
@@ -40,26 +43,31 @@ export const ParseContainer = () => {
                     }
                 </div>
             </div>
-            {Object.keys(nounsObtained).length !== 0 ?
-            <div className="parser-tokens">
-                <div>
-            <h3>Nouns collected</h3>
-                    <ul>
-                        {Object.keys(nounsObtained).map((k) => {
-                            return <li>{k + "-" + nounsObtained[k]}</li>
-                        })}
-                    </ul>
+            {Object.keys(nounsObtained).length !== 0 || Object.keys(verbsObtained).length !== 0 ?
+                <div className="parser-tokens">
+                    <div>
+                        <h3>Nouns collected</h3>
+                        <ul>
+                            {Object.keys(nounsObtained).map((k) => {
+                                return <li>{k + "-" + nounsObtained[k]}</li>
+                            })}
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3>Verbs collected</h3>
+                        <ul>
+                            {Object.keys(verbsObtained).map((k) => {
+                                return <li>{k + "-" + verbsObtained[k]}</li>
+                            })}
+                        </ul>
+                    </div>
                 </div>
 
-                <div>
-                    <h3>Verbs collected</h3>
-                </div>
-            </div>
+                :
 
-            :
-
-            <>
-            </>
+                <>
+                </>
             }
         </div>
     )
