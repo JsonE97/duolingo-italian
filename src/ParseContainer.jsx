@@ -28,7 +28,7 @@ export const ParseContainer = () => {
             <h2>Enter text below:</h2>
             <textarea className="parser-container-entry" onChange={(e) => onTextEntered(e.target.value)} type="text" value={inputText}></textarea>
             <div className="parser-options">
-                <button disabled={isLoading} onClick={() => onSubmit()}>{isLoading ? "Parsing ..." : "Submit"}</button>
+                <button disabled={isLoading || inputText === ""} onClick={() => onSubmit()}>{isLoading ? "Parsing ..." : "Submit"}</button>
                 <div className="parser-loading-spinner">
                     {isLoading ?
                         <Loader

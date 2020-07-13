@@ -19,7 +19,7 @@ function App() {
           <div className="container">
             <nav>
               <ul>
-                <li><Link className="nav-link" to="/">Home</Link></li>
+                <li><Link className="nav-link" to="/flashcards">Flashcards</Link></li>
                 <li><Link className="nav-link" to="/verbs">Verbs</Link></li>
                 <li><Link className="nav-link" to="/parser">Document Parser</Link></li>
               </ul>
@@ -35,8 +35,8 @@ function App() {
             <Route path="/parser">
               <DocParserPage></DocParserPage>
             </Route>
-            <Route path="/">
-              <></>
+            <Route path="/flashcards">
+              
             </Route>
           </Switch>
         </div>
