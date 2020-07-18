@@ -1,25 +1,38 @@
 import time
 from flask import Flask, request
-from googletrans import Translator
+
 from parseWords import obtain_nouns_verbs
+
+# Main Flask app created here
 
 app = Flask(__name__)
 
-translator = Translator()
 
-
+# APIFunctions class
+# Description - used to store functions which will be called from react
 class APIFunctions:
+
+    # parse_input_text
+    # Description - takes a block of text and retrives the verbs and nouns from it
+    # Args        - args - an object containing the 'text' field for the function
+    # Returns     - an object of nouns and verbs parsed
     def parse_input_text(args):
         text = args['text']
-        translation = translator.translate(text, src="it", dest="en")
-        finalParse = obtain_nouns_verbs(translation.text)
+        finalParse = obtain_nouns_verbs(text)
         return finalParse
+
+    # global class function storage dictionary
 
     functions = {
         'parse_input_text': parse_input_text
     }
 
-
+# executeBackendFunction
+# Description - main function to be called from react in the convention where the request.args
+#               should be an object of key->value arguments. Must include 'funcName'-><name> and
+#               has an optional 'args'-><args>
+# Returns     - an object of the result of the function call, if successful. otherwise an object
+#               with success->false
 @app.route('/executeBackendFunction')
 def execute_backend_function():
     args = request.args
@@ -32,4 +45,4 @@ def execute_backend_function():
     res = {}
     if func:
         res = func(args)
-    return res
+    return {'result': res, 'success': True}

@@ -5,6 +5,8 @@ translator = Translator()
 
 
 def obtain_nouns_verbs(text):
+    translation = translator.translate(text, src="it", dest="en")
+    text = translation.text
     eng_nouns, eng_verbs = [], []
     it_nouns, it_verbs = [], []
     tokens = word_tokenize(text)
