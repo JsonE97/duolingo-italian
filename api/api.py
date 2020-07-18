@@ -8,9 +8,28 @@ app = Flask(__name__)
 translator = Translator()
 
 
-@app.route('/parseText')
-def parse_input_text():
-    text = request.args["text"]
-    translation = translator.translate(text, src="it", dest="en")
-    finalParse = obtain_nouns_verbs(translation.text)
-    return finalParse
+class APIFunctions:
+    def parse_input_text(args):
+        text = args['text']
+        translation = translator.translate(text, src="it", dest="en")
+        finalParse = obtain_nouns_verbs(translation.text)
+        return finalParse
+
+    functions = {
+        'parse_input_text': parse_input_text
+    }
+
+
+@app.route('/executeBackendFunction')
+def execute_backend_function():
+    args = request.args
+    func_name = args['funcName']
+    func_args = {}
+    for key in args.keys():
+        if key != 'funcName':
+            func_args[key] = args[key]
+    func = APIFunctions.functions[func_name]
+    res = {}
+    if func:
+        res = func(args)
+    return res
