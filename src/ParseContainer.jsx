@@ -12,7 +12,6 @@ export const ParseContainer = () => {
     const onSubmit = () => {
         setIsLoading(!isLoading);
         executeFunction('parse_input_text', { text: inputText }).then(res => {
-            console.log(res);
             setIsLoading(false);
             setNounsObtained(res.nouns);
             setVerbsObtained(res.verbs);

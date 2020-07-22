@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 import './App.scss';
 
-import IndicativeData from  './data/indicativo.json';
+import IndicativeData from './data/indicativo.json';
 import { VerbsPage } from './VerbsPage';
 import { DocParserPage } from './DocParserPage';
 
@@ -36,7 +36,6 @@ function App() {
               <DocParserPage></DocParserPage>
             </Route>
             <Route path="/flashcards">
-              
             </Route>
           </Switch>
         </div>
