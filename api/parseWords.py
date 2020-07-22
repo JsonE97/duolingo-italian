@@ -4,6 +4,13 @@ from googletrans import Translator
 
 translator = Translator()
 
+# Obtain Nouns and Verbs from text - method 1
+
+# obtain_nouns_verbs
+# Description - traverses the text passed in and gather a dictionary of verbs and one of nouns
+# Args        - text - the text to be parsed
+# Returns     - an object in the form {"nouns": <nouns dict>, "verbs": <verbs dict>}
+
 
 def obtain_nouns_verbs(text):
     translation = translator.translate(text, src="it", dest="en")
@@ -21,33 +28,11 @@ def obtain_nouns_verbs(text):
     verbs = apply_translations(eng_verbs, "en", "it")
     return {"nouns": nouns, "verbs": verbs}
 
-
-def obtain_nouns_verbs_new(text):
-    it_nouns, it_verbs = {}, {}
-    tokens = text.lower().translate(str.maketrans(
-        '', '', string.punctuation)).split(" ")
-
-    for token in tokens:
-        eng_trans = translator.translate(
-            token, src="it", dest="en").text.lower()
-        token_tag = word_tokenize(eng_trans)
-        pos_tag_obj = pos_tag(token_tag)[0]
-
-        if pos_tag_obj[1] == 'NN' or pos_tag_obj[1] == 'NNS':
-            it_nouns = append_token(it_nouns, token, eng_trans)
-        elif 'VB' in pos_tag_obj[1]:
-            it_verbs = append_token(it_verbs, token, eng_trans)
-
-    return {"it_nouns": it_nouns, "it_verbs": it_verbs}
-
-
-def append_token(dict, token, value):
-    if token not in dict.keys():
-        dict[token] = [value]
-    else:
-        if value not in dict[token]:
-            dict[token].append(value)
-    return dict
+# apply_translations
+# Description - takes a list of tokens in the incoming language and translates them to the outgoing lang
+# Args        - tokens          - list of tokens in one language
+#             - incoming_lang   - the language of the tokens in the list
+#             - outgoing_lang   - the language to be converted into
 
 
 def apply_translations(tokens, incoming_lang, outgoing_lang):
@@ -59,8 +44,49 @@ def apply_translations(tokens, incoming_lang, outgoing_lang):
             translations[tokens[t].upper()] = translation[t].text
     return translations
 
+# Obtain Nouns and Verbs from text - method 2
+# obtain_italian_token_translations
+# Description - traverses the text passed in and gather a dictionary of italian token translations
+# Args        - text - the text in italian to be translated
+# Returns     - an object in the form {"it_tokens": <it token translation dict>}
 
-if __name__ == "__main__":
-    #print(obtain_nouns_verbs("when i want to eat a sandwich, i will do it"))
 
-    print(obtain_nouns_verbs_new("sei stato impegnato"))
+def obtain_italian_token_translations(text):
+    it_tokens = {}
+    tokens = text.lower().translate(str.maketrans(
+        '', '', string.punctuation)).split(" ")
+
+    for token in tokens:
+        eng_trans = translator.translate(
+            token, src="it", dest="en").text.lower()
+        token_tag = word_tokenize(eng_trans)
+        pos_tag_obj = pos_tag(token_tag)[0]
+
+        if pos_tag_obj[1] == 'NN' or pos_tag_obj[1] == 'NNS' or 'VB' in pos_tag_obj[1]:
+            it_tokens = append_token(it_tokens, token, eng_trans)
+
+    return {"it_tokens": it_tokens}
+
+# append_token
+# Description - helper function to append key and value translation to dictionary
+# Args        - dict  - the dictionary
+#             - token - the token key to append
+#             - value - the value for the key to append
+
+
+def append_token(dict, token, value):
+    if token not in dict.keys():
+        dict[token] = [value]
+    else:
+        if value not in dict[token]:
+            dict[token].append(value)
+    return dict
+
+
+# example usage
+
+# if __name__ == "__main__":
+#   print(obtain_italian_token_translations("devo giocare"))
+#
+#   print(obtain_nouns_verbs(
+#         "devo giocare la partita perche sono un giocatore buonissimo"))
