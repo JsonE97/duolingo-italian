@@ -10,12 +10,21 @@ INDEX_TOKEN_TYPE = 2
 INDEX_TOKEN_EXAMPLE = 3
 
 # parse_csv_file
-# args - fileName - the fileName of the csv file to load (must be abs path)
-# returns - a list of csv data in dic format {id, token, translation, token_type, token_example}
+# Description - takes the filename of flashcard data to load from
+# Args        - fileName - the fileName of the csv file to load (will assume in same directory)
+# returns     - a list of csv data in dic format {id, token, translation, token_type, token_example}
+
 
 def parse_csv_file(fileName):
+    scriptDir = os.path.dirname(__file__)
+    relPath = "flashcards/{0}".format(fileName)
+    absFilePath = os.path.join(scriptDir, relPath)
     flashcards = []
-    with open(fileName, "r") as f:
+
+    if not os.path.exists(absFilePath):
+        raise IOError(absFilePath + " - does not exist!")
+
+    with open(absFilePath, "r") as f:
         for id, line in enumerate(f.readlines()):
             lineData = line.strip('\n').split(",")
             flashcards.append({
@@ -27,9 +36,6 @@ def parse_csv_file(fileName):
             })
     return flashcards
 
-
-if __name__ == '__main__':
-    script_dir = os.path.dirname(__file__)  # <-- absolute dir the script is in
-    rel_path = "flashcards/flashcards1.csv"
-    abs_file_path = os.path.join(script_dir, rel_path)
-    print(parse_csv_file(abs_file_path))
+# example usage
+# if __name__ == '__main__':
+#     print(parse_csv_file("flashCards1.csv"))
