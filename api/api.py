@@ -1,7 +1,7 @@
 import time
 from flask import Flask, request
 
-from parseWords import obtain_nouns_verbs
+from parseWords import obtain_spacy_translations
 
 # Main Flask app created here
 
@@ -18,7 +18,7 @@ class APIFunctions:
     # Returns     - an object of nouns and verbs parsed
     def parse_input_text(args):
         text = args['text']
-        finalParse = obtain_nouns_verbs(text)
+        finalParse = obtain_spacy_translations(text)
         return finalParse
 
     # global class function storage dictionary
