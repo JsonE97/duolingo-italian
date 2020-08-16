@@ -90,3 +90,35 @@ def append_token(dict, token, value):
 #
 #   print(obtain_nouns_verbs(
 #         "devo giocare la partita perche sono un giocatore buonissimo"))
+
+
+##########################################################################################
+# SPACY API TEST
+##########################################################################################
+
+import spacy
+
+nlp = spacy.load('it_core_news_sm')
+
+# example usage
+
+def obtain_spacy_translations(text, incoming_lang = "it", outgoing_lang = "en"):
+    nouns = {}
+    verbs = {}
+
+    tokenised_text = nlp(text)
+    for token in tokenised_text:
+        formattedToken = token.string.lower().strip()
+        if token.pos_ == "NOUN" and formattedToken not in nouns.keys():
+            conversion = translator.translate(formattedToken, src = incoming_lang, dest = outgoing_lang).text
+            nouns[formattedToken] = conversion
+        elif "verb" in token.tag_.lower() and formattedToken not in verbs.keys():
+            infinitiveVerb = token.lemma_
+            conversion = translator.translate(infinitiveVerb, src = incoming_lang, dest = outgoing_lang).text
+            verbs[infinitiveVerb] = conversion
+    return nouns, verbs
+
+if __name__ == "__main__":
+    nouns, verbs = obtain_spacy_translations("devo giocare la partita o invece posso guardare la partita")
+    print(nouns)
+    print(verbs)
