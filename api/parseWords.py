@@ -115,13 +115,13 @@ def obtain_spacy_translations(text, incoming_lang="it", outgoing_lang="en"):
                 formattedToken, src=incoming_lang, dest=outgoing_lang).text
             nouns[formattedToken] = conversion
         elif "verb" in token.tag_.lower() and formattedToken not in verbs.keys():
-            infinitiveVerb = token.lemma_
+            infinitive = token.lemma_.lower().strip()
             conversion = translator.translate(
-                infinitiveVerb, src=incoming_lang, dest=outgoing_lang).text
-            verbs[infinitiveVerb] = conversion
-    return { "nouns": nouns, "verbs": verbs }
+                infinitive, src=incoming_lang, dest=outgoing_lang).text
+            verbs[infinitive] = conversion
+    return {"nouns": nouns, "verbs": verbs}
 
 # if __name__ == "__main__":
-#     nouns, verbs = obtain_spacy_translations("devo giocare la partita o invece posso guardare la partita")
-#     print(nouns)
-#     print(verbs)
+#     res = obtain_spacy_translations("mangerò")
+#     print(res["nouns"])
+#     print(res["verbs"])

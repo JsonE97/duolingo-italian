@@ -15,8 +15,7 @@
 
   h1 {
     color: darkgreen;
-    padding: 0;
-    margin: 30px;
+    padding-top: 20px;
   }
 }
 
@@ -46,12 +45,20 @@ header {
 // navbar styles to be move
 .container {
   background-color: green;
-  height: 40px;
-  width: 100%;
+  width: 80%;
   margin: 0 auto;
 
   nav {
     text-align: center;
+    display: flex;
+    flex-direction: row;
+
+    ul {
+      width: 100%;
+      margin-bottom: 5px;
+      margin-top: 5px;
+      padding-bottom: 0px;
+    }
   }
 }
 
@@ -83,5 +90,5 @@ header::after {
 
 .div-page-container {
   margin: 0 auto;
-  width: 70%;
+  width: 80%;
 }
