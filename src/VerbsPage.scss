@@ -1,0 +1,26 @@
+.App-current-page {
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    background-color: lightgreen;
+
+    h2 {
+        color: green;
+    }
+
+    .App-verb-search {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 10px;
+
+        input {
+            height: 18px;
+            margin-left: 10px;
+        }
+    }
+}
+
+label {
+    display: inline-block;
+    text-align: right;
+}
