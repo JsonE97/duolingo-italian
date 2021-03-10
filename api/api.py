@@ -33,7 +33,7 @@ class APIFunctions:
 #               has an optional 'args'-><args>
 # Returns     - an object of the result of the function call, if successful. otherwise an object
 #               with success->false
-@app.route('/executeBackendFunction')
+@app.route('/api/executeBackendFunction')
 def execute_backend_function():
     args = request.args
     func_name = args['funcName']
