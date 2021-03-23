@@ -1,16 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 import './App.scss';
 
-import IndicativeData from './data/indicativo.json';
+import allITVerbData from './data/italianVerbData.json';
+
 import { VerbsPage } from './VerbsPage';
 import { DocParserPage } from './DocParserPage';
 
 function App() {
-
-  const [presentData, setPresentData] = useState(IndicativeData.PRESENTE);
-
   return (
     <Router>
       <div className="App">
@@ -30,7 +28,7 @@ function App() {
         <div className="div-page-container">
           <Switch>
             <Route path="/verbs">
-              <VerbsPage verbData={presentData}></VerbsPage>
+              <VerbsPage verbData={allITVerbData}></VerbsPage>
             </Route>
             <Route path="/parser">
               <DocParserPage></DocParserPage>

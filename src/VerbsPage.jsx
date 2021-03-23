@@ -3,19 +3,22 @@ import React, { useState, useEffect } from 'react';
 import { VerbList } from './VerbList.jsx';
 import "./VerbsPage.scss";
 
-export const VerbsPage = ({verbData}) => {
+export const VerbsPage = ({ verbData }) => {
     const [inputVerb, setInputVerb] = useState("");
     const [filteredVerbs, setFilteredVerbs] = useState({});
 
     useEffect(() => {
-        if(inputVerb.length === 0){
+        if (inputVerb.length === 0) {
             setFilteredVerbs({});
-        }else{
-            const allKeys = Object.keys(verbData);
-            const resultantVerbs = allKeys.filter(v => v.startsWith(inputVerb.toUpperCase()));
+        } else {
+            const allVerbs = Object.keys(verbData);
+
             const filtered = {};
-            resultantVerbs.forEach(v => {
-                filtered[v] = verbData[v];
+            allVerbs.forEach(v => {
+                if (v.toUpperCase().startsWith(inputVerb.toUpperCase()) ||
+                    verbData[v].Translation.toUpperCase().startsWith(inputVerb.toUpperCase())) {
+                    filtered[v] = verbData[v];
+                }
             })
             setFilteredVerbs(filtered);
         }
@@ -23,17 +26,17 @@ export const VerbsPage = ({verbData}) => {
 
     return (
         <div className="App-current-page">
-            <h2>Commonly used verbs</h2>
+            <h3>Commonly used verbs</h3>
             <div className="App-verb-search">
                 <label>Search for verb:</label>
                 <input type="text" value={inputVerb} onChange={event => setInputVerb(event.target.value)}></input>
             </div>
             <VerbList
-                verbData={Object.keys(filteredVerbs).length === 0 || filteredVerbs === undefined || filteredVerbs === null ?
-                            verbData
-                            :
-                            filteredVerbs
-                            }
+                verbData={!filteredVerbs || Object.keys(filteredVerbs).length === 0 ?
+                    verbData
+                    :
+                    filteredVerbs
+                }
             >
 
             </VerbList>

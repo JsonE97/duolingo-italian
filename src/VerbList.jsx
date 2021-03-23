@@ -5,22 +5,23 @@ import './VerbContainer.jsx';
 import InfiniteScroll from 'react-infinite-scroller';
 import { VerbContainer } from './VerbContainer.jsx';
 
-export const VerbList = ({verbData}) => {
-    const verbObjects = Object.keys(verbData).map(k => <VerbContainer verbData={verbData[k]}></VerbContainer>)
-    const [items, setItems] = useState(verbObjects.slice(0,4));
+export const VerbList = ({ verbData }) => {
+    const [verbObjects, setVerbObjects] = useState([]);
+    const [filteredVerbObjects, setFilteredVerbObjects] = useState([]);
 
     const moreVerbsExist = () => {
-        return items.length !== verbObjects.length;
+        return filteredVerbObjects.length !== verbObjects.length;
     }
 
     const loadFunc = () => {
-        var newItems = verbObjects.slice(0, items.length + 4);
-        setItems(newItems);
+        var newItems = verbObjects.slice(0, filteredVerbObjects.length + 4);
+        setFilteredVerbObjects(newItems);
     }
 
     useEffect(() => {
-        const verbObjects = Object.keys(verbData).map(k => <VerbContainer verbData={verbData[k]}></VerbContainer>)
-        setItems(verbObjects.slice(0,4));
+        const newVerbObjects = Object.keys(verbData).map(k => <VerbContainer verbName={k} verbData={verbData[k]}></VerbContainer>)
+        setVerbObjects(newVerbObjects);
+        setFilteredVerbObjects(newVerbObjects.slice(0, 4));
     }, [verbData]);
 
     return (
@@ -31,7 +32,7 @@ export const VerbList = ({verbData}) => {
                 hasMore={moreVerbsExist()}
                 loader={<div>loading...</div>}
             >
-                {items}
+                {filteredVerbObjects}
             </InfiniteScroll>
         </div>
     )

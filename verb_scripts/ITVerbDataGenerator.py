@@ -101,11 +101,11 @@ class ITVerbDataGenerator:
                 try:
                     conjug = self.conjugator.conjugate(subString, "pronoun")
                     test = conjug.conjug_info["Indicativo"]
-                    self.exportData(k, conjug.conjug_info)
+                    self.exportData(k, v, conjug.conjug_info)
                 except:
                     print("verb not found - " + subString)
 
-    def exportData(self, engVerb, verbData):
+    def exportData(self, engVerb, itVerb, verbData):
         resVerbData = {}
         for verbMood in verbData.keys():
             moodTenseData = {}
@@ -115,6 +115,7 @@ class ITVerbDataGenerator:
                     curTenseData[person] = verbData[verbMood][moodTense][person]
                 moodTenseData[moodTense] = curTenseData
             resVerbData[verbMood] = moodTenseData
+        resVerbData["Translation"] = itVerb
         self.resultDict[engVerb] = resVerbData
 
     def outputToFile(self):

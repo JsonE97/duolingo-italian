@@ -3,11 +3,11 @@
     padding-bottom: 80px;
 }
 
-.verbTable {
+table {
     width: 50%;
+    border-collapse: collapse;
     th {
-        text-align: left;
-        padding-bottom: 5px;
+        text-align: center;
         text-transform: capitalize;
         background-color: green;
     }

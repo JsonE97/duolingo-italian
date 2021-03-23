@@ -1,7 +1,16 @@
 .App {
   text-align: center;
-  background-color: lightgreen;
-  font-family: "Optima, sans-serif";
+
+  h1 {
+    color: rgb(0, 100, 0);
+  }
+
+  h2,
+  h3 {
+    color: rgb(0, 128, 0);
+
+    text-transform: capitalize;
+  }
 }
 
 .App-logo {
@@ -10,54 +19,32 @@
 
 .App-header {
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  background-color: lightgreen;
+  font-size: calc(8px + 2vmin);
 
   .container {
     background-color: green;
     width: 100%;
-    margin: 0 auto;
 
     nav {
-      text-align: center;
-      display: flex;
-      flex-direction: row;
-
       ul {
-        width: 100%;
-        margin-bottom: 5px;
-        margin-top: 5px;
+        display: flex;
+        flex-direction: row;
         text-align: center;
         list-style: none;
+        justify-content: space-evenly;
+        padding-top: 10px;
+        padding-bottom: 10px;
       }
 
-      li {
-        display: inline-block;
-        margin: 0 100px;
+      li :hover {
+        background-color: rgb(5, 175, 5);
       }
 
       .nav-link {
-        color: rgb(28, 241, 28);
+        color: rgb(0, 253, 0);
         text-decoration: none;
         text-transform: uppercase;
       }
     }
   }
-
-  h1 {
-    color: darkgreen;
-    padding-top: 20px;
-    margin-bottom: 20px;
-  }
-}
-
-header::after {
-  content: '';
-  display: table;
-  clear: both;
-}
-
-.div-page-container {
-  margin: 0 auto;
-  width: 80%;
 }
