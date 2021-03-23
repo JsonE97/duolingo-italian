@@ -70,15 +70,19 @@
 
 import json
 import mlconjug3
+from shutil import copyfile
+import os
 
 
 class ItalianVerbKeys:
-        MOOD_INDICATIVO = "Indicativo"
-        MOOD_CONGIUNTIVO = "Congiuntivo"
-        MOOD_CONDIZIONALE = "Condizionale"
-        MOOD_IMPERATIVO = "Imperativo"
-        MOOD_INFINITO = "Infinito"
-        MOOD_PARTICIPIO = "Participio"
+    MOOD_INDICATIVO = "Indicativo"
+    MOOD_CONGIUNTIVO = "Congiuntivo"
+    MOOD_CONDIZIONALE = "Condizionale"
+    MOOD_IMPERATIVO = "Imperativo"
+    MOOD_INFINITO = "Infinito"
+    MOOD_PARTICIPIO = "Participio"
+
+
 class ITVerbDataGenerator:
     def __init__(self, inFileName, outFileName):
         self.fileName = inFileName
@@ -117,5 +121,17 @@ class ITVerbDataGenerator:
         with open(self.outFileName, "w") as f:
             f.write(json.dumps(self.resultDict))
 
-ITVerbDataGenerator("./verb_scripts/1000verbs.json",
-                    "./verb_scripts/italianVerbData.json")
+
+if __name__ == "__main__":
+    inFile = "./verb_scripts/1000verbs.json"
+    outFile = "./verb_scripts/italianVerbData.json"
+    ITVerbDataGenerator(inFile, outFile)
+
+    try:
+        print("Copying file {inFile} to destination {outFile}".format(
+            inFile=inFile, outFile=outFile))
+        copyfile(outFile, "./src/data/italianVerbData.json")
+        os.remove(outFile)
+    except:
+        raise IOError("Could not copy file: {inFile} \nto destination: {outFile}".format(
+            inFile=inFile, outFile=outFile))
