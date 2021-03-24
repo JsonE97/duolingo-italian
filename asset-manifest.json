@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/duolingo-italian/static/css/main.9fde0e31.chunk.css",
-    "main.js": "/duolingo-italian/static/js/main.57c57886.chunk.js",
-    "main.js.map": "/duolingo-italian/static/js/main.57c57886.chunk.js.map",
-    "runtime-main.js": "/duolingo-italian/static/js/runtime-main.7111abdc.js",
-    "runtime-main.js.map": "/duolingo-italian/static/js/runtime-main.7111abdc.js.map",
-    "static/js/2.9e8619c8.chunk.js": "/duolingo-italian/static/js/2.9e8619c8.chunk.js",
-    "static/js/2.9e8619c8.chunk.js.map": "/duolingo-italian/static/js/2.9e8619c8.chunk.js.map",
+    "main.css": "/duolingo-italian/static/css/main.66d75f30.chunk.css",
+    "main.js": "/duolingo-italian/static/js/main.b4a65219.chunk.js",
+    "main.js.map": "/duolingo-italian/static/js/main.b4a65219.chunk.js.map",
+    "runtime-main.js": "/duolingo-italian/static/js/runtime-main.38a570ac.js",
+    "runtime-main.js.map": "/duolingo-italian/static/js/runtime-main.38a570ac.js.map",
+    "static/js/2.6bb7198e.chunk.js": "/duolingo-italian/static/js/2.6bb7198e.chunk.js",
+    "static/js/2.6bb7198e.chunk.js.map": "/duolingo-italian/static/js/2.6bb7198e.chunk.js.map",
     "index.html": "/duolingo-italian/index.html",
-    "precache-manifest.4616408b130402535fe0b7892ca96361.js": "/duolingo-italian/precache-manifest.4616408b130402535fe0b7892ca96361.js",
+    "precache-manifest.6db090110f1c2e6faf71283deb5ffefb.js": "/duolingo-italian/precache-manifest.6db090110f1c2e6faf71283deb5ffefb.js",
     "service-worker.js": "/duolingo-italian/service-worker.js",
-    "static/css/main.9fde0e31.chunk.css.map": "/duolingo-italian/static/css/main.9fde0e31.chunk.css.map"
+    "static/css/main.66d75f30.chunk.css.map": "/duolingo-italian/static/css/main.66d75f30.chunk.css.map"
   },
   "entrypoints": [
-    "static/js/runtime-main.7111abdc.js",
-    "static/js/2.9e8619c8.chunk.js",
-    "static/css/main.9fde0e31.chunk.css",
-    "static/js/main.57c57886.chunk.js"
+    "static/js/runtime-main.38a570ac.js",
+    "static/js/2.6bb7198e.chunk.js",
+    "static/css/main.66d75f30.chunk.css",
+    "static/js/main.b4a65219.chunk.js"
   ]
 }
