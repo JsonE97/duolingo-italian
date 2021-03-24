@@ -29,11 +29,12 @@ export const VerbContainer = ({ verbName, verbData }) => {
                         })}
 
                 </tbody>
+                <tfoot>
+                    <tr>
+                        <td colSpan={2}>test</td>
+                    </tr>
+                </tfoot>
             </table>
-
-            <div className="verbContainerOptions">
-                test
-            </div>
         </div>
     )
 }

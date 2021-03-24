@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { HashRouter, Route, Link } from 'react-router-dom';
 
 import './App.scss';
 
@@ -10,13 +10,14 @@ import { DocParserPage } from './DocParserPage';
 
 function App() {
   return (
-    <Router>
+    <HashRouter basename="/">
       <div className="App">
         <header className="App-header">
           <h1>Italian Verbs with Json</h1>
           <div className="container">
             <nav>
               <ul>
+                <li><Link className="nav-link" to="/">Home</Link></li>
                 <li><Link className="nav-link" to="/flashcards">Flashcards</Link></li>
                 <li><Link className="nav-link" to="/verbs">Verbs</Link></li>
                 <li><Link className="nav-link" to="/parser">Document Parser</Link></li>
@@ -26,20 +27,14 @@ function App() {
         </header>
 
         <div className="div-page-container">
-          <Switch>
-            <Route path="/verbs">
-              <VerbsPage verbData={allITVerbData}></VerbsPage>
-            </Route>
-            <Route path="/parser">
-              <DocParserPage></DocParserPage>
-            </Route>
-            <Route path="/flashcards">
-            </Route>
-          </Switch>
+          <Route exact path="/" />
+          <Route exact path="/verbs" render={() => (<VerbsPage verbData={allITVerbData}></VerbsPage>)} />
+          <Route exact path="/parser" component={() => (<DocParserPage></DocParserPage>)} />
+          <Route exact path="/flashcards" />
         </div>
 
       </div>
-    </Router>
+    </HashRouter>
   );
 }
 

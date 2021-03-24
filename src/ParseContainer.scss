@@ -2,23 +2,21 @@
     margin-top: 50px;
     border-top: solid 4pt green;
     border-bottom: solid 4pt green;
-    width: 100%;
 
     h2 {
         color: green;
         text-align: left;
-        font-size: 30px;
     }
 
     h3 {
         color: green;
         text-align: left;
-        font-size: 25px;
     }
 }
 
 .parser-container-entry {
-    width: 100%;
+    width: 80%;
+    float: left;
     height: 50px;
     padding-top: 0px;
     resize: none;

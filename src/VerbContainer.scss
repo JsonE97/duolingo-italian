@@ -1,6 +1,8 @@
 .verbContainer {
     width: 100%;
     padding-bottom: 80px;
+
+    font-size: 20px;
 }
 
 table {
@@ -11,16 +13,14 @@ table {
         text-transform: capitalize;
         background-color: green;
     }
-    td {
+    tbody > tr > td {
         background-color: rgb(247, 238, 238);
         text-align: left;
         width: 50%;
     }
-}
-
-.verbContainerOptions {
-    background-color: red;
-    width: 50%;
-    margin-left: auto;
-    margin-right: auto;
+    tfoot {
+        text-align: center;
+        align-items: center;
+        background: red;
+    }
 }
