@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/duolingo-italian/static/css/main.9bda2de2.chunk.css",
-    "main.js": "/duolingo-italian/static/js/main.de3862f7.chunk.js",
-    "main.js.map": "/duolingo-italian/static/js/main.de3862f7.chunk.js.map",
+    "main.css": "/duolingo-italian/static/css/main.8c53470a.chunk.css",
+    "main.js": "/duolingo-italian/static/js/main.75b75c05.chunk.js",
+    "main.js.map": "/duolingo-italian/static/js/main.75b75c05.chunk.js.map",
     "runtime-main.js": "/duolingo-italian/static/js/runtime-main.38a570ac.js",
     "runtime-main.js.map": "/duolingo-italian/static/js/runtime-main.38a570ac.js.map",
-    "static/js/2.decb75d9.chunk.js": "/duolingo-italian/static/js/2.decb75d9.chunk.js",
-    "static/js/2.decb75d9.chunk.js.map": "/duolingo-italian/static/js/2.decb75d9.chunk.js.map",
+    "static/js/2.b739708c.chunk.js": "/duolingo-italian/static/js/2.b739708c.chunk.js",
+    "static/js/2.b739708c.chunk.js.map": "/duolingo-italian/static/js/2.b739708c.chunk.js.map",
     "index.html": "/duolingo-italian/index.html",
-    "precache-manifest.aa8a21bfa7bf3e6e4996a921de94027b.js": "/duolingo-italian/precache-manifest.aa8a21bfa7bf3e6e4996a921de94027b.js",
+    "precache-manifest.2e31f695138563c0f91cc35ec4dbe2c9.js": "/duolingo-italian/precache-manifest.2e31f695138563c0f91cc35ec4dbe2c9.js",
     "service-worker.js": "/duolingo-italian/service-worker.js",
-    "static/css/main.9bda2de2.chunk.css.map": "/duolingo-italian/static/css/main.9bda2de2.chunk.css.map"
+    "static/css/main.8c53470a.chunk.css.map": "/duolingo-italian/static/css/main.8c53470a.chunk.css.map"
   },
   "entrypoints": [
     "static/js/runtime-main.38a570ac.js",
-    "static/js/2.decb75d9.chunk.js",
-    "static/css/main.9bda2de2.chunk.css",
-    "static/js/main.de3862f7.chunk.js"
+    "static/js/2.b739708c.chunk.js",
+    "static/css/main.8c53470a.chunk.css",
+    "static/js/main.75b75c05.chunk.js"
   ]
 }
