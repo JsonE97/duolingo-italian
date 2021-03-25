@@ -1,18 +1,18 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "435d7f050b7110f4053d94d488f909e8",
+    "revision": "b179bd395df56a610a2d6eec72f5e650",
     "url": "/duolingo-italian/index.html"
   },
   {
-    "revision": "efc234eb72d574278b97",
-    "url": "/duolingo-italian/static/css/main.1d2456db.chunk.css"
+    "revision": "585b8593d4325120fb43",
+    "url": "/duolingo-italian/static/css/main.9bda2de2.chunk.css"
   },
   {
     "revision": "25db8582fd57c6df3014",
     "url": "/duolingo-italian/static/js/2.decb75d9.chunk.js"
   },
   {
-    "revision": "efc234eb72d574278b97",
+    "revision": "585b8593d4325120fb43",
     "url": "/duolingo-italian/static/js/main.de3862f7.chunk.js"
   },
   {
