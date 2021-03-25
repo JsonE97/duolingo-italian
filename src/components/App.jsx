@@ -3,10 +3,12 @@ import { HashRouter, Route, Link } from 'react-router-dom';
 
 import './App.scss';
 
-import allITVerbData from './data/italianVerbData.json';
+import allITVerbData from '../data/italianVerbData.json';
 
-import { VerbsPage } from './VerbsPage';
-import { DocParserPage } from './DocParserPage';
+import { VerbsPage } from './pages/VerbsPage';
+import { DocParserPage } from './pages/DocParserPage';
+import { FlashcardsPage } from './pages/FlashcardsPage';
+import { HomePage } from './pages/HomePage';
 
 function App() {
   return (
@@ -27,10 +29,10 @@ function App() {
         </header>
 
         <div className="div-page-container">
-          <Route exact path="/" />
-          <Route exact path="/verbs" render={() => (<VerbsPage verbData={allITVerbData}></VerbsPage>)} />
+          <Route exact path="/" component={() => (<HomePage></HomePage>)} />
+          <Route exact path="/verbs" component={() => (<VerbsPage verbData={allITVerbData}></VerbsPage>)} />
           <Route exact path="/parser" component={() => (<DocParserPage></DocParserPage>)} />
-          <Route exact path="/flashcards" />
+          <Route exact path="/flashcards" component={() => (<FlashcardsPage></FlashcardsPage>)} />
         </div>
 
       </div>

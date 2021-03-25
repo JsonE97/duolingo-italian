@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './ParseContainer.scss';
 import Loader from 'react-loader-spinner';
-import { executeFunction } from './lib/BridgeFunctions.jsx';
+import { executeFunction } from '../../lib/BridgeFunctions.jsx';
 
 export const ParseContainer = () => {
     const [isLoading, setIsLoading] = useState(false);

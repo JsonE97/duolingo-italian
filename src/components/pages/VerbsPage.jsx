@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import { VerbList } from './VerbList.jsx';
+import { VerbList } from '../verbs/VerbList.jsx';
 import "./VerbsPage.scss";
 
 export const VerbsPage = ({ verbData }) => {
