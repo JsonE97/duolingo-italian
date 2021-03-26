@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './ParseContainer.scss';
 import Loader from 'react-loader-spinner';
-import { executeFunction } from '../../lib/BridgeFunctions.jsx';
+import { Bridge } from '../../lib/BridgeFunctions.js';
 
 export const ParseContainer = () => {
     const [isLoading, setIsLoading] = useState(false);
@@ -11,24 +11,38 @@ export const ParseContainer = () => {
 
     const onSubmit = () => {
         setIsLoading(!isLoading);
-        executeFunction('parse_input_text', { text: inputText }).then(res => {
+        Bridge.executeFunction('parse_input_text', { text: inputText }).then(res => {
             setIsLoading(false);
-            setNounsObtained(res.nouns);
-            setVerbsObtained(res.verbs);
+            setNounsObtained(res.result.nouns);
+            setVerbsObtained(res.result.verbs);
         });
-    }
-
-    const onTextEntered = (text) => {
-        setInputText(text);
     }
 
     return (
         <div className="parser-container-frame">
             <h2>Enter text below:</h2>
-            <textarea className="parser-container-entry" onChange={(e) => onTextEntered(e.target.value)} type="text" value={inputText}></textarea>
+            <textarea
+                className="parser-container-entry"
+                onChange={(e) => setInputText(e.target.value)}
+                type="text"
+                value={inputText}>
+            </textarea>
             <div className="parser-options">
-                <button disabled={isLoading || inputText === ""} onClick={() => onSubmit()}>{isLoading ? "Parsing ..." : "Submit"}</button>
-                <div className="parser-loading-spinner">
+                <div className="parser-options-content">
+                    <button
+                        disabled={isLoading || inputText === ""}
+                        onClick={() => onSubmit()}
+                        className={"parser-options-button" + ((isLoading || inputText === "") ? " disabled" : "")}
+                    >
+                        {inputText === "" ?
+                            "Nothing to parse!"
+                            :
+                            isLoading ? "Parsing ..." : "Submit"
+                        }
+                    </button>
+                    <div className="parser-options-spinner">
+
+                    </div>
                     {isLoading ?
                         <Loader
                             type="Oval"
@@ -57,7 +71,7 @@ export const ParseContainer = () => {
                         <h3>Verbs collected</h3>
                         <ul>
                             {Object.keys(verbsObtained).map((k) => {
-                                return <li>{k + "-" + verbsObtained[k]}</li>
+                                return <li>{k + " - " + verbsObtained[k]}</li>
                             })}
                         </ul>
                     </div>

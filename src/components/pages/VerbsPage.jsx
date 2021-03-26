@@ -22,7 +22,7 @@ export const VerbsPage = ({ verbData }) => {
             })
             setFilteredVerbs(filtered);
         }
-    }, [inputVerb]);
+    }, [inputVerb, verbData]);
 
     return (
         <div className="App-current-page">

@@ -1,7 +1,7 @@
 import spacy
 from nltk import word_tokenize, pos_tag
 import string
-from googletrans import Translator
+from google_trans_new import google_translator as Translator
 
 translator = Translator()
 
@@ -112,16 +112,16 @@ def obtain_spacy_translations(text, incoming_lang="it", outgoing_lang="en"):
         formattedToken = token.string.lower().strip()
         if token.pos_ == "NOUN" and formattedToken not in nouns.keys():
             conversion = translator.translate(
-                formattedToken, src=incoming_lang, dest=outgoing_lang).text
+                formattedToken, lang_src=incoming_lang, lang_tgt=outgoing_lang)
             nouns[formattedToken] = conversion
         elif "verb" in token.tag_.lower() and formattedToken not in verbs.keys():
             infinitive = token.lemma_.lower().strip()
             conversion = translator.translate(
-                infinitive, src=incoming_lang, dest=outgoing_lang).text
+                infinitive, lang_src=incoming_lang, lang_tgt=outgoing_lang)
             verbs[infinitive] = conversion
     return {"nouns": nouns, "verbs": verbs}
 
 # if __name__ == "__main__":
-#     res = obtain_spacy_translations("mangerò")
+#     res = obtain_spacy_translations("mangiare")
 #     print(res["nouns"])
 #     print(res["verbs"])
