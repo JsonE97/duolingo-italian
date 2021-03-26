@@ -46,3 +46,6 @@ def execute_backend_function():
     if func:
         res = func(args)
     return {'result': res, 'success': True}
+
+
+app.run(host='0.0.0.0', port=5000)
