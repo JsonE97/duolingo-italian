@@ -32,7 +32,7 @@ export const ParseContainer = () => {
                     <button
                         disabled={isLoading || inputText === ""}
                         onClick={() => onSubmit()}
-                        className={"parser-options-button" + ((isLoading || inputText === "") ? " disabled" : "")}
+                        className={"parser-options-button"}
                     >
                         {inputText === "" ?
                             "Nothing to parse!"
