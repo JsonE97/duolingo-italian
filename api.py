@@ -5,7 +5,7 @@ from parseWords import obtain_spacy_translations
 
 # Main Flask app created here
 
-app = Flask(__name__, static_folder='../build',static_url_path='')
+app = Flask(__name__)
 
 
 # APIFunctions class
@@ -46,3 +46,6 @@ def execute_backend_function():
     if func:
         res = func(args)
     return {'result': res, 'success': True}
+
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', port=5000)

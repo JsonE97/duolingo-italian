@@ -40,5 +40,6 @@
   "devDependencies": {
     "gh-pages": "^2.1.1",
     "git-push": "^0.1.1"
-  }
+  },
+  "proxy": "http://localhost:5000"
 }
