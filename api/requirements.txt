@@ -5,11 +5,14 @@ chardet==4.0.0
 click==7.1.2
 contextvars==2.4
 cymem==2.0.5
+dataclasses==0.6
 Flask==1.1.2
 google-trans-new==1.1.9
+gunicorn==20.1.0
 idna==2.10
 immutables==0.15
 importlib-metadata==3.8.1
+it-core-news-sm @ https://github.com/explosion/spacy-models/releases/download/it_core_news_sm-3.0.0/it_core_news_sm-3.0.0-py3-none-any.whl
 itsdangerous==1.1.0
 Jinja2==2.11.3
 joblib==1.0.1
