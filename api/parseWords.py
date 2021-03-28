@@ -109,12 +109,12 @@ def obtain_spacy_translations(text, incoming_lang="it", outgoing_lang="en"):
 
     tokenised_text = nlp(text)
     for token in tokenised_text:
-        formattedToken = token.string.lower().strip()
+        formattedToken = token.text.lower().strip()
         if token.pos_ == "NOUN" and formattedToken not in nouns.keys():
             conversion = translator.translate(
                 formattedToken, lang_src=incoming_lang, lang_tgt=outgoing_lang)
             nouns[formattedToken] = conversion
-        elif "verb" in token.tag_.lower() and formattedToken not in verbs.keys():
+        elif (token.pos_ == "VERB" or token.tag_.lower().startswith("v")) and formattedToken not in verbs.keys():
             infinitive = token.lemma_.lower().strip()
             conversion = translator.translate(
                 infinitive, lang_src=incoming_lang, lang_tgt=outgoing_lang)

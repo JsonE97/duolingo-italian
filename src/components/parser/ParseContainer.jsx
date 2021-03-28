@@ -62,7 +62,7 @@ export const ParseContainer = () => {
                         <h3>Nouns collected</h3>
                         <ul>
                             {Object.keys(nounsObtained).map((k) => {
-                                return <li>{k + "-" + nounsObtained[k]}</li>
+                                return <li>{k + " - " + nounsObtained[k]}</li>
                             })}
                         </ul>
                     </div>
