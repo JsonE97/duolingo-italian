@@ -2,7 +2,7 @@
   "name": "react-italian",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://JsonE97.github.io/duolingo-italian",
+  "homepage": ".",
   "dependencies": {
     "bootstrap": "^4.5.2",
     "caniuse-lite": "^1.0.30001204",
