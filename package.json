@@ -2,7 +2,6 @@
   "name": "react-italian",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://italian-wjson-flask-app.herokuapp.com/",
   "dependencies": {
     "bootstrap": "^4.5.2",
     "caniuse-lite": "^1.0.30001204",
@@ -20,7 +19,7 @@
     "start-api": "cd api && env/bin/flask run",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "test-api": "cd api && flask test",
+    "test-api": "cd api && env/bin/flask test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"

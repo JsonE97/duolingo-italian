@@ -1,17 +1,12 @@
 import time
 from flask import Flask, request
-import sys
 import os
-import logging
 
 from parseWords import obtain_spacy_translations
 
 # Main Flask app created here
 
-app = Flask(__name__, static_folder='../build', static_url_path='/')
-
-app.logger.addHandler(logging.StreamHandler(sys.stdout))
-app.logger.setLevel(logging.ERROR)
+app = Flask(__name__)
 
 # APIFunctions class
 # Description - used to store functions which will be called from react
@@ -31,14 +26,6 @@ class APIFunctions:
     functions = {
         'parse_input_text': parse_input_text
     }
-
-@app.route('/')
-def index():
-    return app.send_static_file('index.html')
-
-@app.errorhandler(404)
-def not_found(e):
-    return app.send_static_file('index.html')
 
 # executeBackendFunction
 # Description - main function to be called from react in the convention where the request.args
