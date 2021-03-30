@@ -16,10 +16,10 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "start-api": "cd api && env/bin/flask run",
+    "start-api": "env/bin/flask run",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "test-api": "cd api && env/bin/flask test",
+    "test-api": "env/bin/flask test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"

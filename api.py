@@ -6,7 +6,7 @@ from parseWords import obtain_spacy_translations
 
 # Main Flask app created here
 
-app = Flask(__name__, static_folder="../build", static_url_path="/")
+app = Flask(__name__, static_folder="./build", static_url_path="/")
 
 # APIFunctions class
 # Description - used to store functions which will be called from react
@@ -50,7 +50,3 @@ def execute_backend_function():
 @app.route('/')
 def index():
     return app.send_static_file('index.html')
-
-if __name__ == "__main__":
-    port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port, debug=True)

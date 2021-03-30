@@ -3,6 +3,7 @@
 # dependencies
 /node_modules
 /api/env
+/env/
 /.pnp
 .pnp.js
 venv
@@ -11,7 +12,6 @@ venv
 /coverage
 
 # production
-/build
 
 # misc
 .DS_Store
