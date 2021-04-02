@@ -28,11 +28,13 @@ function App() {
           </div>
         </header>
 
-        <div className="div-page-container">
-          <Route exact path="/" component={() => (<HomePage></HomePage>)} />
-          <Route exact path="/verbs" component={() => (<VerbsPage verbData={allITVerbData}></VerbsPage>)} />
-          <Route exact path="/parser" component={() => (<DocParserPage></DocParserPage>)} />
-          <Route exact path="/flashcards" component={() => (<FlashcardsPage></FlashcardsPage>)} />
+        <div className="div-page-wrapper">
+          <div className="div-page-container">
+            <Route exact path="/" component={() => (<HomePage></HomePage>)} />
+            <Route exact path="/verbs" component={() => (<VerbsPage verbData={allITVerbData}></VerbsPage>)} />
+            <Route exact path="/parser" component={() => (<DocParserPage></DocParserPage>)} />
+            <Route exact path="/flashcards" component={() => (<FlashcardsPage></FlashcardsPage>)} />
+          </div>
         </div>
 
       </div>

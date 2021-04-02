@@ -1,13 +1,13 @@
-.App-current-page {
+.verbs-page {
     h3 {
         font-size: 35px;
     }
     justify-content: center;
     font-size: calc(10px + 2vmin);
-    padding-right: 20%;
-    padding-left: 20%;
+    width: 100%;
 
     .App-verb-search {
+        width: 100%;
         display: flex;
         flex-direction: row;
         justify-content: center;
@@ -21,6 +21,7 @@
         input {
             height: 18px;
             margin-left: 10px;
+            flex-grow: 1;
         }
 
         label {

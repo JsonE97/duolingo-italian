@@ -25,7 +25,7 @@ export const VerbsPage = ({ verbData }) => {
     }, [inputVerb, verbData]);
 
     return (
-        <div className="App-current-page">
+        <div className="verbs-page">
             <h3>Commonly used verbs</h3>
             <div className="App-verb-search">
                 <label>Search for verb:</label>
