@@ -26,7 +26,10 @@ export const VerbsPage = ({ verbData }) => {
 
     return (
         <div className="verbs-page">
-            <h3>Commonly used verbs</h3>
+            <p>This page shows the most commonly used everyday italian verbs!
+                You can use the search bar in english or italian to search for a
+                specfic verb.
+            </p>
             <div className="App-verb-search">
                 <label>Search for verb:</label>
                 <input type="text" value={inputVerb} onChange={event => setInputVerb(event.target.value)}></input>

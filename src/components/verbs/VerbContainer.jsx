@@ -9,6 +9,10 @@ export const VerbContainer = ({ verbName, verbData }) => {
         }
     }, [verbData])
 
+    const getEnglishPronounForRow = (i) => {
+        return ["I", "You", "He/She", "We", "You all", "They"][i];
+    }
+
     return (
         <div className="verbContainer">
             <table align="center" className="verbTable">
@@ -19,10 +23,17 @@ export const VerbContainer = ({ verbName, verbData }) => {
                 </thead>
                 <tbody>
                     {
-                        Object.keys(indicativo).map(k => {
+                        Object.keys(indicativo).map((k, i) => {
                             return (
                                 <tr>
-                                    <td>{k}</td>
+                                    <td>{(i === 2 ?
+                                        "lui/lei"
+                                        :
+                                        (i === 5 ?
+                                            "loro"
+                                            :
+                                            k
+                                        )) + ' (' + getEnglishPronounForRow(i) + ')'}</td>
                                     <td>{indicativo[k]}</td>
                                 </tr>
                             )

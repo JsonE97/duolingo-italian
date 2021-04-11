@@ -1,10 +1,10 @@
 .verbs-page {
-    h3 {
-        font-size: 35px;
-    }
     justify-content: center;
-    font-size: calc(10px + 2vmin);
     width: 100%;
+
+    p {
+        font-weight: 700;
+    }
 
     .App-verb-search {
         width: 100%;

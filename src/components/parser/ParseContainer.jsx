@@ -32,7 +32,9 @@ export const ParseContainer = () => {
                     <button
                         disabled={isLoading || inputText === ""}
                         onClick={() => onSubmit()}
-                        className={"parser-options-button"}
+                        className={"parser-options-button" + (inputText === "" ? " empty"
+                            :
+                            " submit")}
                     >
                         {inputText === "" ?
                             "Nothing to parse!"
@@ -46,8 +48,8 @@ export const ParseContainer = () => {
                     {isLoading ?
                         <Loader
                             type="Oval"
-                            height="30"
-                            width="30"
+                            height="25"
+                            width="25"
                         >
                         </Loader>
                         :
