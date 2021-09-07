@@ -10,12 +10,19 @@ import { DocParserPage } from './pages/DocParserPage';
 import { FlashcardsPage } from './pages/FlashcardsPage';
 import { HomePage } from './pages/HomePage';
 
+import Flags from 'country-flag-icons/react/3x2'
+
 function App() {
+  const allVerbData = allITVerbData;
+
   return (
     <HashRouter basename="/">
       <div className="App">
         <header className="App-header">
-          <h1>Italian Verbs with Json</h1>
+          <div className="div-top-header">
+            <Flags.RU title="Russia" className="flag-site-language" />
+            <h1 className="h-site-header">Language learning with Json</h1>
+          </div>
           <div className="container">
             <nav>
               <ul>
@@ -31,7 +38,7 @@ function App() {
         <div className="div-page-wrapper">
           <div className="div-page-container">
             <Route exact path="/" component={() => (<HomePage></HomePage>)} />
-            <Route exact path="/verbs" component={() => (<VerbsPage verbData={allITVerbData}></VerbsPage>)} />
+            <Route exact path="/verbs" component={() => (<VerbsPage verbData={allVerbData}></VerbsPage>)} />
             <Route exact path="/parser" component={() => (<DocParserPage></DocParserPage>)} />
             <Route exact path="/flashcards" component={() => (<FlashcardsPage></FlashcardsPage>)} />
           </div>
