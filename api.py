@@ -12,20 +12,19 @@ app = Flask(__name__, static_folder="./build", static_url_path="/")
 # Description - used to store functions which will be called from react
 class APIFunctions:
 
-    # parse_input_text
-    # Description - takes a block of text and retrives the verbs and nouns from it
-    # Args        - args - an object containing the 'text' field for the function
-    # Returns     - an object of nouns and verbs parsed
-    def parse_input_text(args):
-        text = args['text']
-        finalParse = obtain_spacy_translations(text)
-        return finalParse
+  # parse_input_text
+  # Description - takes a block of text and retrives the verbs and nouns from it
+  # Args        - args - an object containing the 'text' field for the function
+  # Returns     - an object of nouns and verbs parsed
+  def parse_input_text(args):
+    text = args["text"]
+    finalParse = obtain_spacy_translations(text)
+    return finalParse
 
-    # global class function storage dictionary
+  # global class function storage dictionary
 
-    functions = {
-        'parse_input_text': parse_input_text
-    }
+  functions = {"parse_input_text": parse_input_text}
+
 
 # executeBackendFunction
 # Description - main function to be called from react in the convention where the request.args
@@ -33,20 +32,21 @@ class APIFunctions:
 #               has an optional 'args'-><args>
 # Returns     - an object of the result of the function call, if successful. otherwise an object
 #               with success->false
-@app.route('/api/executeBackendFunction')
+@app.route("/api/executeBackendFunction")
 def execute_backend_function():
-    args = request.args
-    func_name = args['funcName']
-    func_args = {}
-    for key in args.keys():
-        if key != 'funcName':
-            func_args[key] = args[key]
-    func = APIFunctions.functions[func_name]
-    res = {}
-    if func:
-        res = func(args)
-    return {'result': res, 'success': True}
+  args = request.args
+  func_name = args["funcName"]
+  func_args = {}
+  for key in args.keys():
+    if key != "funcName":
+      func_args[key] = args[key]
+  func = APIFunctions.functions[func_name]
+  res = {}
+  if func:
+    res = func(args)
+  return {"result": res, "success": True}
 
-@app.route('/')
+
+@app.route("/")
 def index():
-    return app.send_static_file('index.html')
+  return app.send_static_file("index.html")
