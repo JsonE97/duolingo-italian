@@ -40,6 +40,20 @@
 .App-header {
   justify-content: center;
 
+  .div-top-header {
+    width: 100%;
+
+    .flag-site-language {
+      width: 10%;
+      float: left;
+      margin-left: 10px;
+    }
+
+    .h-site-header {
+      width: 90%;
+    }
+  }
+
   h1 {
     font-size: 40px;
   }
