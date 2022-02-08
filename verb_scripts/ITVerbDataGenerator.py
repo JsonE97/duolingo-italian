@@ -75,64 +75,64 @@ import os
 
 
 class ItalianVerbKeys:
-  MOOD_INDICATIVO = "Indicativo"
-  MOOD_CONGIUNTIVO = "Congiuntivo"
-  MOOD_CONDIZIONALE = "Condizionale"
-  MOOD_IMPERATIVO = "Imperativo"
-  MOOD_INFINITO = "Infinito"
-  MOOD_PARTICIPIO = "Participio"
+    MOOD_INDICATIVO = "Indicativo"
+    MOOD_CONGIUNTIVO = "Congiuntivo"
+    MOOD_CONDIZIONALE = "Condizionale"
+    MOOD_IMPERATIVO = "Imperativo"
+    MOOD_INFINITO = "Infinito"
+    MOOD_PARTICIPIO = "Participio"
 
 
 class ITVerbDataGenerator:
-  def __init__(self, inFileName, outFileName):
-    self.fileName = inFileName
-    self.outFileName = outFileName
-    self.resultDict = {}
-    self.conjugator = mlconjug3.Conjugator(language='it')
-    self.readFile()
-    self.outputToFile()
+    def __init__(self, inFileName, outFileName):
+        self.fileName = inFileName
+        self.outFileName = outFileName
+        self.resultDict = {}
+        self.conjugator = mlconjug3.Conjugator(language='it')
+        self.readFile()
+        self.outputToFile()
 
-  def readFile(self):
-    with open(self.fileName) as inFile:
-      data = json.load(inFile)
-      for (k, v) in data.items():
-        slashPos = v.find('/')
-        subString = v[:slashPos] if slashPos != -1 else v
-        try:
-          conjug = self.conjugator.conjugate(subString, "pronoun")
-          test = conjug.conjug_info["Indicativo"]
-          self.exportData(k, v, conjug.conjug_info)
-        except:
-          print("verb not found - " + subString)
+    def readFile(self):
+        with open(self.fileName) as inFile:
+            data = json.load(inFile)
+            for (k, v) in data.items():
+                slashPos = v.find('/')
+                subString = v[:slashPos] if slashPos != -1 else v
+                try:
+                    conjug = self.conjugator.conjugate(subString, "pronoun")
+                    test = conjug.conjug_info["Indicativo"]
+                    self.exportData(k, v, conjug.conjug_info)
+                except:
+                    print("verb not found - " + subString)
 
-  def exportData(self, engVerb, itVerb, verbData):
-    resVerbData = {}
-    for verbMood in verbData.keys():
-      moodTenseData = {}
-      for moodTense in verbData[verbMood].keys():
-        curTenseData = {}
-        for person in verbData[verbMood][moodTense].keys():
-          curTenseData[person] = verbData[verbMood][moodTense][person]
-        moodTenseData[moodTense] = curTenseData
-      resVerbData[verbMood] = moodTenseData
-    resVerbData["Translation"] = itVerb
-    self.resultDict[engVerb] = resVerbData
+    def exportData(self, engVerb, itVerb, verbData):
+        resVerbData = {}
+        for verbMood in verbData.keys():
+            moodTenseData = {}
+            for moodTense in verbData[verbMood].keys():
+                curTenseData = {}
+                for person in verbData[verbMood][moodTense].keys():
+                    curTenseData[person] = verbData[verbMood][moodTense][person]
+                moodTenseData[moodTense] = curTenseData
+            resVerbData[verbMood] = moodTenseData
+        resVerbData["Translation"] = itVerb
+        self.resultDict[engVerb] = resVerbData
 
-  def outputToFile(self):
-    with open(self.outFileName, "w") as f:
-      f.write(json.dumps(self.resultDict))
+    def outputToFile(self):
+        with open(self.outFileName, "w") as f:
+            f.write(json.dumps(self.resultDict))
 
 
 if __name__ == "__main__":
-  inFile = "./verb_scripts/1000verbs.json"
-  outFile = "./verb_scripts/italianVerbData.json"
-  ITVerbDataGenerator(inFile, outFile)
+    inFile = "./verb_scripts/1000verbs.json"
+    outFile = "./verb_scripts/italianVerbData.json"
+    ITVerbDataGenerator(inFile, outFile)
 
-  try:
-    print("Copying file {inFile} to destination {outFile}".format(
-      inFile=inFile, outFile=outFile))
-    copyfile(outFile, "./src/data/italianVerbData.json")
-    os.remove(outFile)
-  except:
-    raise IOError("Could not copy file: {inFile} \nto destination: {outFile}".format(
-      inFile=inFile, outFile=outFile))
+    try:
+        print("Copying file {inFile} to destination {outFile}".format(
+            inFile=inFile, outFile=outFile))
+        copyfile(outFile, "./src/data/italianVerbData.json")
+        os.remove(outFile)
+    except:
+        raise IOError("Could not copy file: {inFile} \nto destination: {outFile}".format(
+            inFile=inFile, outFile=outFile))

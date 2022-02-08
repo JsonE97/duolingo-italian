@@ -1,83 +1,82 @@
 .parser-container-frame {
-  border-top: solid 5px green;
-  border-bottom: solid 5px green;
+    border-top: solid 5px green;
+    border-bottom: solid 5px green;
 
-  h2 {
-    color: green;
-    text-align: left;
-  }
+    h2 {
+        color: green;
+        text-align: left;
+    }
 
-  h3 {
-    color: green;
-    text-align: left;
-  }
+    h3 {
+        color: green;
+        text-align: left;
+    }
 }
 
 .parser-container-entry {
-  width: 100%;
-  height: 50px;
-  resize: none;
-  padding: 0px;
-  outline: none;
-  font-size: 15px;
+    width: 100%;
+    height: 50px;
+    resize: none;
+    padding: 0px;
+    outline: none;
+    font-size: 15px;
 }
 
 .parser-options {
-  width: 100%;
-  padding-top: 10px;
-  padding-bottom: 15px; // to take into account the border bottom
-
-  .parser-options-content {
-    display: flex;
-    flex-direction: row;
     width: 100%;
-    vertical-align: middle;
+    padding-top: 10px;
+    padding-bottom: 15px; // to take into account the border bottom
 
-    .parser-options-button {
-      padding-top: 5px;
-      padding-bottom: 5px;
-      color: rgb(8, 243, 0);
-      background-color: green;
-      outline: none;
+    .parser-options-content {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        vertical-align: middle;
+
+        .parser-options-button {
+            padding-top: 5px;
+            padding-bottom: 5px;
+            color: rgb(8, 243, 0);
+            background-color: green;
+            outline: none;
+        }
+
+        .parser-options-spinner {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-left: 10px;
+            vertical-align: middle;
+
+        }
     }
-
-    .parser-options-spinner {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      margin-left: 10px;
-      vertical-align: middle;
-
-    }
-  }
 
 }
 
 .parser-tokens {
 
-  h3 {
-    font-weight: 200;
-    margin-bottom: 0px;
-    margin-top: 0px;
-  }
-
-  width: 100%;
-  display: inline-block;
-
-  div {
-    width: 50%;
-    float: left;
-  }
-
-  ul {
-    margin-bottom: 10px;
-    margin-top: 10px;
-    padding-left: 0px;
-    list-style-position: inside;
-
-    li {
-      text-align: left;
+    h3 {
+        font-weight: 200;
+        margin-bottom: 0px;
+        margin-top: 0px;
     }
-  }
+
+    width: 100%;
+    display: inline-block;
+
+    div {
+        width: 50%;
+        float: left;
+    }
+
+    ul {
+        margin-bottom: 10px;
+        margin-top: 10px;
+        padding-left: 0px;
+        list-style-position: inside;
+        li {
+            text-align: left;
+        }
+    }
 }

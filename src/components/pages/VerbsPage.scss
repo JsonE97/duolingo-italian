@@ -1,37 +1,37 @@
 .verbs-page {
-  justify-content: center;
-  width: 100%;
-
-  p {
-    font-weight: 700;
-  }
-
-  .App-verb-search {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
     justify-content: center;
-    vertical-align: middle;
-    align-items: center;
-    text-align: center;
-    font-size: 25px;
-    color: darkgreen;
-    padding-bottom: 10px;
+    width: 100%;
 
-    input {
-      height: 18px;
-      margin-left: 10px;
-      flex-grow: 1;
+    p {
+        font-weight: 700;
     }
 
-    label {
-      vertical-align: middle;
-      text-align: center;
+    .App-verb-search {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        vertical-align: middle;
+        align-items: center;
+        text-align: center;
+        font-size: 25px;
+        color: darkgreen;
+        padding-bottom: 10px;
+
+        input {
+            height: 18px;
+            margin-left: 10px;
+            flex-grow: 1;
+        }
+
+        label {
+            vertical-align: middle;
+            text-align: center;
+        }
     }
-  }
 }
 
 label {
-  display: inline-block;
-  text-align: right;
+    display: inline-block;
+    text-align: right;
 }
