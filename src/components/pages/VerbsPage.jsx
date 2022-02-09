@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
 
 import { VerbList } from '../verbs/VerbList.jsx';
+import { Dropdown } from '../common/Dropdown.jsx';
+
 import "./VerbsPage.scss";
 
 export const VerbsPage = ({ verbData }) => {
   const [inputVerb, setInputVerb] = useState("");
   const [filteredVerbs, setFilteredVerbs] = useState({});
+  console.log(verbData);
 
   useEffect(() => {
     if (inputVerb.length === 0) {
@@ -32,6 +35,15 @@ export const VerbsPage = ({ verbData }) => {
       <div className="App-verb-search">
         <label>Search for verb:</label>
         <input type="text" value={inputVerb} onChange={event => setInputVerb(event.target.value)}></input>
+      </div>
+
+      <div className="App-verb-filter">
+        <Dropdown
+          category="Moods"
+          defaultText="Select mood:"
+          options={[{value: "Indicativo", label: "Indicativo"}, {value: "Congiuntivo", label: "Congiuntivo"}]}
+          onChange={alert}
+        />
       </div>
       <VerbList
         verbData={!filteredVerbs || Object.keys(filteredVerbs).length === 0 ?

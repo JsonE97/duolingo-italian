@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
-import './ParseContainer.scss';
 import Loader from 'react-loader-spinner';
+
 import { Bridge } from '../../lib/BridgeFunctions.js';
+
+import './ParseContainer.scss';
 
 export const ParseContainer = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -18,6 +20,37 @@ export const ParseContainer = () => {
     });
   }
 
+  const getButtonText = () => {
+    return (
+      inputText === "" ?
+        "Nothing to parse!"
+        :
+        isLoading ? "Parsing ..." : "Submit"
+    );
+  }
+
+  const GenerateTokenEntryPane = (type, collection) => {
+    return <div>
+      <h3>{type + " collected"}</h3>
+      <ul>
+        {Object.keys(collection).map((k) => {
+          return <li>{k + " - " + collection[k]}</li>
+        })}
+      </ul>
+    </div>
+  }
+
+  const TokenResultsPane = () => {
+    if (Object.keys(nounsObtained).length === 0 && Object.keys(verbsObtained).length === 0) return null;
+
+    return (
+      <div className="parser-tokens">
+        {() => GenerateTokenEntryPane("Nouns", nounsObtained)}
+        {() => GenerateTokenEntryPane("Verbs", verbsObtained)}
+      </div>
+    )
+  }
+
   return (
     <div className="parser-container-frame">
       <h2>Enter text below:</h2>
@@ -25,65 +58,32 @@ export const ParseContainer = () => {
         className="parser-container-entry"
         onChange={(e) => setInputText(e.target.value)}
         type="text"
-        value={inputText}>
-      </textarea>
+        value={inputText}
+      />
       <div className="parser-options">
         <div className="parser-options-content">
           <button
             disabled={isLoading || inputText === ""}
-            onClick={() => onSubmit()}
-            className={"parser-options-button" + (inputText === "" ? " empty"
-              :
-              " submit")}
+            onClick={onSubmit}
+            className={`parser-options-button${inputText === "" ? " empty" : " submit"}`}
           >
-            {inputText === "" ?
-              "Nothing to parse!"
-              :
-              isLoading ? "Parsing ..." : "Submit"
-            }
+            {() => getButtonText()}
           </button>
-          <div className="parser-options-spinner">
-
-          </div>
           {isLoading ?
-            <Loader
-              type="Oval"
-              height="25"
-              width="25"
-            >
-            </Loader>
+            <div className="parser-options-spinner">
+              <Loader
+                type="Oval"
+                height="25"
+                width="25"
+              />
+            </div>
             :
-            <>
-            </>
+            null
           }
         </div>
       </div>
-      {Object.keys(nounsObtained).length !== 0 || Object.keys(verbsObtained).length !== 0 ?
-        <div className="parser-tokens">
-          <div>
-            <h3>Nouns collected</h3>
-            <ul>
-              {Object.keys(nounsObtained).map((k) => {
-                return <li>{k + " - " + nounsObtained[k]}</li>
-              })}
-            </ul>
-          </div>
 
-          <div>
-            <h3>Verbs collected</h3>
-            <ul>
-              {Object.keys(verbsObtained).map((k) => {
-                return <li>{k + " - " + verbsObtained[k]}</li>
-              })}
-            </ul>
-          </div>
-        </div>
-
-        :
-
-        <>
-        </>
-      }
+      <TokenResultsPane />
     </div>
   )
 }
