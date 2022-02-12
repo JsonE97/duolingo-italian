@@ -3,6 +3,8 @@ import React, { useState, useEffect } from 'react';
 import { VerbList } from '../verbs/VerbList.jsx';
 import { Dropdown } from '../common/Dropdown.jsx';
 
+import { ITVerbModel } from '../../model/ITVerbModel.js';
+
 import "./VerbsPage.scss";
 
 export const VerbsPage = ({ verbData }) => {
@@ -27,6 +29,10 @@ export const VerbsPage = ({ verbData }) => {
     }
   }, [inputVerb, verbData]);
 
+  const prepareMoodsForDropdown = () => {
+    return Object.entries(ITVerbModel.getAllMoods()).map(([value, label]) => Object.assign({}, { value, label }));
+  }
+
   return (
     <div className="verbs-page">
       <p>This page shows commonly used verbs!
@@ -41,7 +47,7 @@ export const VerbsPage = ({ verbData }) => {
         <Dropdown
           category="Moods"
           defaultText="Select mood:"
-          options={[{value: "Indicativo", label: "Indicativo"}, {value: "Congiuntivo", label: "Congiuntivo"}]}
+          options={prepareMoodsForDropdown()}
           onChange={alert}
         />
       </div>

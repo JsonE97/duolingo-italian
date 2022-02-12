@@ -1,0 +1,76 @@
+// Define constants for the moods
+
+export const MOODS = {
+	INDICATIVO: "Indicativo",
+	CONGIUNTIVO: "Congiuntivo",
+	CONDIZIONALE: "Condizionale",
+	IMPERATIVO: "Imperativo",
+	//INFINITO: "Infinito",
+	//PARTICIPIO: "Participio"
+}
+
+export const TENSES = {
+	// INDICATIVO
+	INDICATIVO_PRESENTE: "Indicativo presente",
+	INDICATIVO_PASSATO_PROSSIMO: "Indicativo passato prossimo",
+	INDICATIVO_IMPERFETTO: "Indicativo imperfetto",
+	INDICATIVO_TRAPASSATO_PROSSIMO: "Indicativo trapassato prossimo",
+	INDICATIVO_PASSATO_REMOTO: "Indicativo passato remoto",
+	INDICATIVO_TRAPASSATO_REMOTO: "Indicativo trapassato remoto",
+	INDICATIVO_FUTURO_SEMPLICE: "Indicativo futuro semplice",
+	INDICATIVO_FUTURO_ANTERIORE: "Indicativo futuro anteriore",
+
+	// CONGIUNTIVO
+	CONGIUNTIVO_PRESENTE: "Congiuntivo presente",
+	CONGIUNTIVO_PASSATO: "Congiuntivo passato",
+	CONGIUNTIVO_IMPERFETTO: "Congiuntivo imperfetto",
+	CONGIUNTIVO_TRAPASSATO: "Congiuntivo trapassato",
+
+	// CONDIZIONALE
+	CONDIZIONALE_PRESENTE: "Condizionale presente",
+	CONDIZIONALE_PASSATO: "Condizionale passato",
+
+	// IMPERATIVO
+	IMPERATIVO_AFFERMATIVO: "Imperativo Affermativo",
+	IMPERATIVO_NON: "Imperativo non"
+
+	// INFINITO + PARTICIPIO todo
+}
+
+const MOOD_TO_TENSES = {
+	[MOODS.INDICATIVO]:
+		[
+			TENSES.INDICATIVO_PRESENTE,
+			TENSES.INDICATIVO_PASSATO_PROSSIMO,
+			TENSES.INDICATIVO_IMPERFETTO,
+			TENSES.INDICATIVO_TRAPASSATO_PROSSIMO,
+			TENSES.INDICATIVO_PASSATO_REMOTO,
+			TENSES.INDICATIVO_TRAPASSATO_REMOTO,
+			TENSES.INDICATIVO_FUTURO_SEMPLICE,
+			TENSES.INDICATIVO_FUTURO_ANTERIORE
+		],
+	[MOODS.CONGIUNTIVO]:
+		[
+			TENSES.CONGIUNTIVO_PRESENTE,
+			TENSES.CONGIUNTIVO_PASSATO,
+			TENSES.CONGIUNTIVO_IMPERFETTO,
+			TENSES.CONGIUNTIVO_TRAPASSATO
+		],
+	[MOODS.CONDIZIONALE]:
+		[
+			TENSES.CONDIZIONALE_PRESENTE,
+			TENSES.CONDIZIONALE_PASSATO
+		],
+	[MOODS.IMPERATIVO]:
+		[
+			TENSES.IMPERATIVO_AFFERMATIVO,
+			TENSES.IMPERATIVO_NON
+		],
+	//[MOODS.INFINITO]: [],
+	//[MOODS.PARTICIPIO]: []
+}
+
+export const ITVerbModel = {
+	getAllMoods: () => MOODS,
+	getTensesForMood: (mood) => MOOD_TO_TENSES[mood]
+}
