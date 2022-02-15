@@ -22,7 +22,7 @@ export const VerbList = ({ verbData, filterData }) => {
     return Object.keys(verbData).map(k => {
       const specificData = verbData[k][filterData.mood][filterData.tense];
       if (specificData) {
-        return <VerbContainer verbName={k} verbData={specificData} translation={verbData[k].translation}></VerbContainer>
+        return <VerbContainer verbName={k} verbData={specificData} translation={verbData[k].Translation}></VerbContainer>
       } else {
         throw("unexpected error, no verb data found!");
       }
