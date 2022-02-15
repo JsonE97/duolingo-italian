@@ -1,0 +1,10 @@
+.div-dropdown {
+	width: 100%;
+
+	display: flex;
+	justify-content: left;
+
+	.select-dropdown {
+		max-width: 220px;
+	}
+}

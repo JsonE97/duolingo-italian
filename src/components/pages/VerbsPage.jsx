@@ -1,16 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 
 import { VerbList } from '../verbs/VerbList.jsx';
 import { Dropdown } from '../common/Dropdown.jsx';
 
-import { ITVerbModel } from '../../model/ITVerbModel.js';
+import { ITVerbModel, MOODS, TENSES } from '../../model/ITVerbModel.js';
 
 import "./VerbsPage.scss";
+
+const allITMoods = ITVerbModel.getAllMoods();
 
 export const VerbsPage = ({ verbData }) => {
   const [inputVerb, setInputVerb] = useState("");
   const [filteredVerbs, setFilteredVerbs] = useState({});
-  console.log(verbData);
+
+  const initialTense = ITVerbModel.getTensesForMood(allITMoods.INDICATIVO)[0];
+  const [filterData, setFilterData] = useState({ mood: allITMoods.INDICATIVO, tense: initialTense })
+  const [currentTensesForMood, setCurrentTensesForMood] = useState(ITVerbModel.getTensesForMood(allITMoods.INDICATIVO));
 
   useEffect(() => {
     if (inputVerb.length === 0) {
@@ -30,8 +35,22 @@ export const VerbsPage = ({ verbData }) => {
   }, [inputVerb, verbData]);
 
   const prepareMoodsForDropdown = () => {
-    return Object.entries(ITVerbModel.getAllMoods()).map(([value, label]) => Object.assign({}, { value, label }));
+    return Object.values(ITVerbModel.getAllMoods()).map((label) => Object.assign({}, { label, label }));
   }
+
+  const prepareTensesForDropdown = () => {
+    return currentTensesForMood.map(tense => Object.assign({}, { value: tense, label: tense }));
+  }
+
+  const onMoodChanged = useCallback((mood) => {
+    const newTensesForMood = ITVerbModel.getTensesForMood(mood);
+    setCurrentTensesForMood(newTensesForMood);
+    setFilterData(Object.assign({}, { mood: mood, tense: newTensesForMood[0] }))
+  }, [filterData]);
+
+  const onTenseChanged = useCallback((tense) => {
+    setFilterData(Object.assign({}, { mood: filterData.mood, tense: tense }));
+  }, [filterData])
 
   return (
     <div className="verbs-page">
@@ -48,7 +67,13 @@ export const VerbsPage = ({ verbData }) => {
           category="Moods"
           defaultText="Select mood:"
           options={prepareMoodsForDropdown()}
-          onChange={alert}
+          onChange={onMoodChanged}
+        />
+        <Dropdown
+          category="Tenses"
+          defaultText="Select tense:"
+          options={prepareTensesForDropdown()}
+          onChange={onTenseChanged}
         />
       </div>
       <VerbList
@@ -57,6 +82,7 @@ export const VerbsPage = ({ verbData }) => {
           :
           filteredVerbs
         }
+        filterData={filterData}
       >
 
       </VerbList>

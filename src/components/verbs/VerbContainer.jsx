@@ -3,12 +3,7 @@ import './VerbContainer.scss';
 
 const PRONOUNS = ["I", "You", "He/She", "We", "You all", "They"];
 
-export const VerbContainer = ({ verbName, verbData }) => {
-  const [indicativo, setIndicativo] = useState([]);
-  useEffect(() => {
-    setIndicativo(verbData?.Indicativo["Indicativo presente"]);
-  }, [verbData])
-
+export const VerbContainer = ({ verbName, verbData, translation }) => {
   const getEnglishPronounForRow = (i) => PRONOUNS[i];
 
   return (
@@ -16,12 +11,12 @@ export const VerbContainer = ({ verbName, verbData }) => {
       <table align="center" className="verbTable">
         <thead>
           <tr>
-            <th colSpan={2}>{verbName + "-" + verbData.Translation}</th>
+            <th colSpan={2}>{verbName + "-" + translation}</th>
           </tr>
         </thead>
         <tbody>
           {
-            Object.keys(indicativo).map((k, i) => {
+            Object.keys(verbData).map((k, i) => {
               return (
                 <tr>
                   <td>{(i === 2 ?
@@ -32,7 +27,7 @@ export const VerbContainer = ({ verbName, verbData }) => {
                       :
                       k
                     )) + ' (' + getEnglishPronounForRow(i) + ')'}</td>
-                  <td>{indicativo[k]}</td>
+                  <td>{verbData[k]}</td>
                 </tr>
               )
             })}

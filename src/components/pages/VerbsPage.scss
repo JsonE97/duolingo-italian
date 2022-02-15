@@ -14,6 +14,12 @@
     vertical-align: middle;
     align-items: center;
     text-align: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+
+    label {
+      color: darkgreen;
+    }
   }
 
   .App-verb-search {
@@ -21,14 +27,13 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    vertical-align: middle;
     align-items: center;
-    text-align: center;
     font-size: 25px;
     color: darkgreen;
-    padding-bottom: 10px;
+    margin-bottom: 10px;
 
     input {
+      margin-top: 4px;
       height: 18px;
       margin-left: 10px;
       flex-grow: 1;

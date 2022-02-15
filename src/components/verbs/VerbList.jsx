@@ -5,7 +5,7 @@ import './VerbContainer.jsx';
 import InfiniteScroll from 'react-infinite-scroller';
 import { VerbContainer } from './VerbContainer.jsx';
 
-export const VerbList = ({ verbData }) => {
+export const VerbList = ({ verbData, filterData }) => {
   const [verbObjects, setVerbObjects] = useState([]);
   const [filteredVerbObjects, setFilteredVerbObjects] = useState([]);
 
@@ -18,11 +18,22 @@ export const VerbList = ({ verbData }) => {
     setFilteredVerbObjects(newItems);
   }
 
+  const convertVerbDataToContainer = () => {
+    return Object.keys(verbData).map(k => {
+      const specificData = verbData[k][filterData.mood][filterData.tense];
+      if (specificData) {
+        return <VerbContainer verbName={k} verbData={specificData} translation={verbData[k].translation}></VerbContainer>
+      } else {
+        throw("unexpected error, no verb data found!");
+      }
+    })
+  }
+
   useEffect(() => {
-    const newVerbObjects = Object.keys(verbData).map(k => <VerbContainer verbName={k} verbData={verbData[k]}></VerbContainer>)
+    const newVerbObjects = convertVerbDataToContainer();
     setVerbObjects(newVerbObjects);
     setFilteredVerbObjects(newVerbObjects.slice(0, 4));
-  }, [verbData]);
+  }, [verbData, filterData]);
 
   return (
     <div>
